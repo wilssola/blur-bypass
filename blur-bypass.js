@@ -16,27 +16,27 @@
 })();
 
 function blurBypass() {
-    let body = document.getElementsByTagName('body')[0];
+    const body = document.getElementsByTagName('body')[0];
     if (body) {
         body.innerHTML = body.innerHTML.replaceAll('blur', '');
     }
 
-    let style = document.createElement('style');
+    const style = document.createElement('style');
     if (style) {
         style.innerHTML = '*, div, div *, .disable-blur, .disable-blur * { filter: blur(0) !important; -webkit-filter: blur(0) !important; }';
     }
 
-    let head = document.getElementsByTagName('head')[0];
+    const head = document.getElementsByTagName('head')[0];
     if (head) {
         head.appendChild(style);
     }
 
-    let paywall = document.querySelectorAll('[data-testid="free-trial-paywall"]')[0];
+    const paywall = document.querySelectorAll('[data-testid="free-trial-paywall"]')[0];
     if (paywall) {
         paywall.remove();
     }
 
-    let divs = document.getElementsByTagName('div');
+    const divs = document.getElementsByTagName('div');
     for (let div of divs) {
         if (!div) continue;
         if (!div.classList) continue;
